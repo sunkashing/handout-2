@@ -1,3 +1,8 @@
+from __future__ import print_function
+import sys
+import math
+import inspect
+
 class Node:
 	def __init__(self, key):
 		self.left = None
@@ -22,11 +27,38 @@ def printPreorder(root):
 		printPreorder(root.left)
 		printPreorder(root.right)
 
+def readargs():
+	trainInput = sys.argv[0]
+	testInput = sys.argv[1]
+	maxDepth = int(sys.argv[2])
+	trainOut = sys.argv[3]
+	testout = sys.argv[4]
+	metricsOut = sys.argv[5]
 
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
+def trainProcess(infile, outfile):
+	fin = open(infile, "r")
+    fout = open(outfile, "w")
+    lines = fin.readlines()
 
-printPreorder(root)
+
+
+def testProcess(infile, outfile):
+
+def entropyCal(lst):
+	pos = 0
+	neg = 0
+	comp = lst[0]
+	for x in lst:
+		if x == comp:
+			pos += 1
+		else:
+			neg += 1
+	entropy = -((pos / (pos + neg)) * math.log(pos / (pos + neg), 2) + (neg / (pos + neg)) * math.log(neg / (pos + neg), 2))
+	return entropy
+
+def mutualCal(lstY, lstX):
+	
+
+
+
+
